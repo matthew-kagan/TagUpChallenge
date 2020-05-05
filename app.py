@@ -7,7 +7,7 @@ def respond():
     name = request.args.get("name", None)
 
     # For debugging
-    print(f"got name {name}")
+    print("got name {name}")
 
     response = {}
 
@@ -19,7 +19,7 @@ def respond():
         response["ERROR"] = "name can't be numeric."
     # Now the user entered a valid name
     else:
-        response["MESSAGE"] = f"Welcome {name} to our awesome platform!!"
+        response["MESSAGE"] = "Welcome {name} to our awesome platform!!"
 
     # Return the response in json format
     return jsonify(response)
@@ -31,7 +31,7 @@ def post_something():
     # You can add the test cases you made in the previous function, but in our case here you are just testing the POST functionality
     if param:
         return jsonify({
-            "Message": f"Welcome {name} to our awesome platform!!",
+            "Message": "Welcome {name} to our awesome platform!!",
             # Add this option to distinct the POST request
             "METHOD" : "POST"
         })
