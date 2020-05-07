@@ -65,7 +65,7 @@ def delete_by_id(id_):
 @app.route("/api/modify/<id_>", methods=['POST'])
 def modify_by_id(id_):
     try:
-        data = Data.query.filter_by(id=id_).first()
+        data = Data.query.filter_by(id=id_).first_or_404()
         data.value1 = request.json.get("value1"),
         data.value2 = request.json.get("value2"),
         data.timeStamp = request.json.get("timeStamp")
