@@ -46,7 +46,7 @@ def get_list():
 @app.route("/api/read/<id_>")
 def get_by_id(id_):
     try:
-        data = Data.query.filter_by(id=id_).first()
+        data = Data.query.filter_by(id=id_).first_or_404()
         return jsonify(data.serialize())
     except Exception as e:
         return str(e)
